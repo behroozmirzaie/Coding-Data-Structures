@@ -235,15 +235,13 @@ hello_decorator = gfg_decorator(hello_decorator)'''
 
 متدهای Dunder (برگرفته از دو خط)، روش‌های از پیش تعریف‌شده  special/magic  در پایتون هستند، با نام‌هایی که با زیرخط دوتایی شروع و پایان می‌یابند. هیچ چیز واقعاً جادویی در مورد آنها وجود ندارد. نمونه هایی از این موارد عبارتند از:
 
+```
 __init__ - constructor
-
 __str__, __repr__ - object representation (casting to string, printing)
-
 __len__, __next__... - generators
-
 __enter__, __exit__ - context managers
-
 __eq__, __lt__, __gt__ - operator overloading
+```
 
 ---
 
