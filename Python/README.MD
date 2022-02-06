@@ -125,15 +125,15 @@ def switch_demo(argument):
 
 ```
 
-Python 3.10 عبارت match-case را معرفی کرد. برای مثال:
+در سال ۲۰۲۱ پایتون در ورژن 3.10 عبارت match-case را معرفی کرد. برای مثال:
 
-‍```
+```
 def f(x):
-match x:
-case 'a':
-return 1
-case 'b':
-return 2
+    match x:
+        case 'a':
+            return 1
+        case 'b':
+            return 2
 
 ```
 
