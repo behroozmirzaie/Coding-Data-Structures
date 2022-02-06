@@ -31,6 +31,18 @@
 >>> "".join(s)
 'Hello World'
 ```
+---
+
+۳- انواع built-in types در پایتون چیست؟
+نوع های تغییر ناپذیر
+
+اعداد: int, float, complex
+دنباله ها: str, tuple, frozenset, bytes
+
+نوع های تغییر پذیر
+انواع list, set, dict, class, …
+
+این موضوع را باید درک کنید که python تمام اینها را به عنوان object معرفی می کند.
 
 ---
 
