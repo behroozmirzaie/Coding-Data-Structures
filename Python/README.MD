@@ -360,4 +360,33 @@ True
 
 --- 
 
-۱۹- 
+۱۹- این مطالب به چه معناست: *args، **kwargs؟ چرا از آن استفاده کنیم؟
+
+زمانی که مطمئن نیستیم چند آرگومان قرار است به یک تابع ارسال شود، یا اگر می خواهیم یک لیست ذخیره شده یا چند آرگومان را به یک تابع ارسال کنیم، از *args استفاده می کنیم.
+
+```
+>>> def print_everything(*args):
+        for count, thing in enumerate(args):
+...         print( '{0}. {1}'.format(count, thing))
+...
+>>> print_everything('apple', 'banana', 'cabbage')
+0. apple
+1. banana
+2. cabbage
+
+```
+
+از **kwargs زمانی استفاده می شود که نمی دانیم چند keyword arguments به یک تابع ارسال می شود، یا می توان از آن برای ارسال مقادیر یک dictionary  به عنوان keyword arguments استفاده کرد.
+
+```
+>>> def table_things(**kwargs):
+...     for name, value in kwargs.items():
+...         print( '{0} = {1}'.format(name, value))
+...
+>>> table_things(apple = 'fruit', cabbage = 'vegetable')
+cabbage = vegetable
+apple = fruit
+```
+---
+
+
