@@ -331,11 +331,11 @@ UnboundLocalError: local variable 'x' referenced before assignment
 
 ۱۸- منظور از Pickling و Unpickling چیست؟
 
-پیکل pickle: الگوریتم قدرتمند برای serializing و deserializing ساختار اشیاء در پایتون است.
+پیکل pickle: الگوریتم قدرتمند برای serializing و deserializing کردن ساختار یک شی در پایتون است.
 
-منظور از pickling: فرآیندی است که طی آن یک سلسله مراتب (hierarchy)  شی پایتون به یک stream  بایت تبدیل می شود
+منظور از pickling: فرآیندی است که طی آن یک شی پیاتون به صورت  hierarchy به stream byte تبدیل می شود.
 
-منظور از unpickling: عملیات معکوس است که به موجب آن یک steam بایت دوباره به یک hierarchy  شی تبدیل می شود.
+منظور از unpickling: عملیات معکوس است که به موجب آن یک stream بایت دوباره به صورت hierarchy  تبدیل به شی  می شود.
 
 ```
 >>> import random 
