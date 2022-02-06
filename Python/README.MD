@@ -245,6 +245,54 @@ __eq__, __lt__, __gt__ - operator overloading
 
 ---
 
-۱۵- 
+۱۵- منظور از Monkey Patching چیست؟ و آیا ایده خوبی است؟
+
+منظور از Monkey Patching تغییر رفتار یک تابع یا یک object  پس از تعریف کردن آن است. مثلا:
 
 
+```
+import datetime
+datetime.datetime.now = lambda: datetime.datetime(2012, 12, 12)
+
+```
+
+بیشتر اوقات این یک ایده بسیار وحشتناک است - معمولاً بهتر است همه چیز به روشی کاملاً تعریف شده عمل کند. یکی از دلایلی که از Monkey Patching استفاده می کنیم TEST کردن است. برای این مورد استفاده از پکیج Mock بسیار مفید است.
+
+---
+
+۱۶- پایتون  with statement برای چه طراحی شده است؟
+
+با استفاده از دستور With میتوانیم  Exception  را با encapsulation مدیریت میکنیم. و بهش context managers هم گفته می شود.
+
+به عنوان مثال، عبارت open به خودی خود یک context manager  است که به شما امکان می دهد یک فایل را باز کنید، تا زمانی که در داخل دستورات with باشید فایل را باز نگه میدارد، و به محض خروج از بلاک، فایل را میبندد.
+
+```
+with open("foo.txt") as foo_file:
+    data = foo_file.read()
+
+```
+
+```
+from contextlib import nested
+with nested(A(), B(), C()) as(X, Y, Z):
+    do_something()
+
+
+```
+
+```
+with open('data') as input_file, open('result', 'w') as output_file:
+    for line in input_file:
+        output_file.write(parse(line))
+
+```
+
+```
+lock = threading.Lock()
+with lock: #Critical section of code
+
+```
+
+--- 
+
+۱۷- 
