@@ -295,4 +295,38 @@ with lock: #Critical section of code
 
 --- 
 
-۱۷- 
+۱۷- استثنا UnboundLocalError و نحوه اجتناب از آن را توضیح دهید؟
+مسئله:
+
+```
+>>> x = 10
+>>> def foo():
+...     print(x)
+...     x += 1
+
+```
+و خروجی مثل زیر خواهد بود:
+```
+>>> foo()
+Traceback (most recent call last):
+  ...
+UnboundLocalError: local variable 'x' referenced before assignment
+
+```
+
+زمانی که عملیات assignment را درون یک scope برای  یک متغیر انجام می دهیم اون variable تبدیل به متغیر local می شود و هر اسم مشابهی که خارج از scope وجود داشته باشد را shadow می کند. از آنجایی که آخرین دستور در foo مقدار جدیدی را به x اختصاص می دهد، کامپایلر آن را به عنوان یک متغیر local  تشخیص می دهد. در نتیجه زمانی که print(x) قبلی سعی می کند uninitialized local variable را چاپ کند یک خطا ایجاد می شود.
+
+```
+>>> x = 10
+>>> def foobar():
+...     global x
+...     print(x)
+...     x += 1
+>>> foobar()
+10
+
+```
+
+--- 
+
+۱۸- 
