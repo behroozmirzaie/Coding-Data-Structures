@@ -481,3 +481,30 @@ python3 -m venv /path/to/new/virtual/environment
 ```
 
 --- 
+
+۲۳- منظور از callable چیست؟
+
+الف) یک callable هر چیزی است که قابل صدا زدن باشد (can be called)
+
+ب) یک شیء قابل call به شما امکان می دهد از پرانتز ( ) استفاده کنید و در نهایت برخی از پارامترها را مانند توابع ارسال
+کنید.
+
+هر وقت که یک تابع میسازیم پایتون یک آبجکت callable میسازد. در مثال زیر، میتونیم تابع func را به دو طریق define کنیم(مثل
+هم هستند)
+
+```
+class a(object):
+    def __call__(self, *args):
+        print 'Hello'
+
+func = a()
+
+# or ... 
+def func(*args):
+    print 'Hello'
+
+```
+
+--- 
+
+۲۴- 
