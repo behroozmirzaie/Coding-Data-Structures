@@ -553,4 +553,39 @@ x = a or b
 
 ---- 
 
-۲۷ 
+۲۷- توضیح دهید که چگونه از Slicing در پایتون استفاده میکنیم.
+
+به راحتی :D
+
+```
+a[start:stop]  # items start through stop-1
+a[start:]      # items start through the rest of the array
+a[:stop]       # items from the beginning through stop-1
+a[:]           # a copy of the whole array
+```
+
+مقدار step نیز وجود دارد که می تواند با هر یک از موارد بالا استفاده شود:
+
+```
+a[start:stop:step] # start through not past stop, by step
+
+```
+
+نکته کلیدی که باید به خاطر داشته باشید این است که مقدار :stop اولین مقداری را نشان می دهد که در slice انتخاب نشده است.
+بنابراین، تفاوت بین start و stop تعداد عناصر انتخاب شده است.
+
+نمودار هنری ASCII ابزاری مفید برای به خاطر سپردن نحوه کار اسلایدها است:
+
+```
+ +---+---+---+---+---+---+
+ | P | y | t | h | o | n |
+ +---+---+---+---+---+---+
+ 0   1   2   3   4   5   6
+-6  -5  -4  -3  -2  -1
+```
+
+---
+
+# senior سطح
+
+۲۸- 
