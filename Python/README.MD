@@ -588,4 +588,30 @@ a[start:stop:step] # start through not past stop, by step
 
 # senior سطح
 
-۲۸- 
+۲۸- لطفا Closures را توضیح دهید.
+
+اشیاء دیتاهایی هستند که همراه با method ها هستند، closures توابعی هستند که با data همراه هستند. (معنی همراه اینجا attach
+هستش)
+
+روش اتصال داده‌ها به یک تابع بدون ارسال آن‌ها به عنوان پارامتر، Closure نامیده می‌شود.
+
+```
+def make_counter():
+    i = 0
+    def counter(): # counter() is a closure
+        nonlocal i
+        i += 1
+        return i
+    return counter
+
+c1 = make_counter()
+c2 = make_counter()
+
+print (c1(), c1(), c2(), c2())
+# -> 1 2 1 2
+
+```
+
+--
+
+۲۹- 
