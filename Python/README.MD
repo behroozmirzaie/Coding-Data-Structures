@@ -614,4 +614,66 @@ print (c1(), c1(), c2(), c2())
 
 --
 
-۲۹- 
+۲۹- چرا متد های private در پایتون واقعا private نیستند؟
+
+صورت مسئله:
+
+پایتون با استفاده از ۲ تا underscore این امکان را میده که توابع و متغیر های private تعریف کنیم.
+مثل ``` __myPrivateMethod() ``` این را تشریح کنید لطفا:
+
+```
+>>> class MyClass:
+...     def myPublicMethod(self):
+...             print 'public method'
+...     def __myPrivateMethod(self):
+...             print 'this is private!!'
+... 
+>>> obj = MyClass()
+>>> obj.myPublicMethod()
+public method
+>>> obj.__myPrivateMethod()
+Traceback (most recent call last):
+  File "", line 1, in 
+AttributeError: MyClass instance has no attribute '__myPrivateMethod'
+>>> dir(obj)
+['_MyClass__myPrivateMethod', '__doc__', '__module__', 'myPublicMethod']
+>>> obj._MyClass__myPrivateMethod()
+this is private!!
+```
+
+جواب:
+
+به صورت خلاصه، با استفاده از name scrambling اطمینان پیدا میکنیم که subclass ها به صورت اتفاقی متدها و variable هایی که
+private هستند را override نکنند. این مورد برای جلوگیری از دسترسی عمومی طراحی نشده. (It's not designed to prevent
+deliberate access from outside.)
+
+به طور دقیق، متد هایی که به صورت private تعریف میشوند خارج از class در دسترس هستند فقط به راحتی نیست :D. هیچ چیزی در
+پایتون به صورت واقعی private نیست.
+
+---
+
+۳۰- تفاوت بین module پایتون و package پایتون چیست؟
+
+هر فایل پایتون یک ماژول است، نام فایل بدون پسوند py هستش.
+
+```
+import my_module
+
+```
+
+یک package مجموعه ای module ها است. زمانی که module یک فایل پایتون است، یک package یک directory از module های پایتونی به
+همراه یک فایل init.py اضافی است. برای تشخیص یک package از یک directory از init.py استفاده میکنیم. Package ها را میتونیم
+توی هر عمقی به صورت تو در تو قرار بدیم، به شرط اینکه دایرکتوری مربوطه حاوی فایل init.py خودش باشد.
+
+بسته ها packages نیز ماژول هستند. آنها فقط بسته بندی متفاوتی دارند. آنها از ترکیب یک دایرکتوری به علاوه فایل init.py
+تشکیل می شوند. آنها ماژول هایی هستند که توانایی نگه داری ماژول های دیگر را هم دارند.
+
+```
+from my_package.timing.danger.internets import function_of_love
+
+```
+
+--- 
+
+۳۱- 
+
