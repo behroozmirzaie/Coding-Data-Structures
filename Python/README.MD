@@ -612,7 +612,7 @@ print (c1(), c1(), c2(), c2())
 
 ```
 
---
+---
 
 ۲۹- چرا متد های private در پایتون واقعا private نیستند؟
 
@@ -676,4 +676,6 @@ from my_package.timing.danger.internets import function_of_love
 --- 
 
 ۳۱- 
+
+
 
