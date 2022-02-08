@@ -25,7 +25,7 @@
 شما نمی توانید زیرا رشته ها تغییر ناپذیر(immutable) هستند. در اکثر مواقع، باید کارکتر هایی که مدر نظر هستند را جدا کرده
 و یک لیست جدید از آنها بسازیم و در صورت نیاز آنها را تبدیل به رشته کنیم.
 
-```
+```python
 >>> s = list("Hello zorld")
 >>> s
 ['H', 'e', 'l', 'l', 'o', ' ', 'z', 'o', 'r', 'l', 'd']
@@ -78,7 +78,7 @@
 جستجوی هر عنصر به یک اندازه باشد، جستجوی خطی دارای یک مورد متوسط از (n+1)/2 مقایسه است، اما اگر احتمالات جستجو برای هر
 عنصر متفاوت باشد، میانگین مورد می تواند تحت تأثیر قرار گیرد.
 
-```
+```python
 # can be simply done using 'in' operator
 if x in arr:
    print arr.index(x)
@@ -119,7 +119,7 @@ def search(arr, x):
 صورت، می توانید از مجموعه ای از عبارات if-elif-else استفاده کنید. برای پیاده‌سازی تابعی برای انجام این کار، احتمالا از
 دیکشنری استفاده می کنیم.
 
-```
+```python
 def switch_demo(argument):
     switcher = {
         1: "January",
@@ -141,7 +141,7 @@ def switch_demo(argument):
 
 در سال ۲۰۲۱ پایتون در ورژن 3.10 عبارت match-case را معرفی کرد. برای مثال:
 
-```
+```python
 def f(x):
     match x:
         case 'a':
@@ -176,7 +176,7 @@ def f(x):
 یک تابع Lambda یک تابع ناشناس کوچک است. یک تابع Lambda می تواند هر تعداد آرگومان را بگیرد، اما فقط می تواند یک عبارت
 داشته باشد. (many arguments but only one expression)
 
-```
+```python
 x = lambda a : a + 10
 print(x(5)) # Output: 15
 
@@ -202,7 +202,7 @@ print(x(5)) # Output: 15
 پایتون اجازه اینکه یک بلاک کد خالی باشد را نمیدهد. با این حال، زمانی که در حال طراحی کلاسی هستیم و نیاز داشته باشیم یک
 قسمت خالی باشد می توانیم از pass استفاده کنیم. زمان هایی زیادی وجودد دارد که ما میتونیم از pass استفاده کنیم.
 
-```
+```python
 class MyClass(object):
     def meth_a(self):
         pass
@@ -214,7 +214,7 @@ class MyClass(object):
 
 اگر بخواهید پاس را حذف کنید، کد اجرا نمی شود و با یک خطا مواجه می شوید:
 
-```
+```python
 IndentationError: expected an indented block
 
 ```
@@ -237,7 +237,7 @@ IndentationError: expected an indented block
 دکوراتور ها ابزار بسیار قدرتمند و مفیدی در پایتون هستند زیرا به برنامه نویسان اجازه می دهد تا رفتار تابع یا کلاس را
 تغییر دهند.
 
-```
+```python
 @gfg_decorator
 def hello_decorator(): 
     print("Gfg") 
@@ -258,7 +258,7 @@ hello_decorator = gfg_decorator(hello_decorator)'''
 متدهای Dunder (برگرفته از دو خط)، روش‌های از پیش تعریف‌شده special/magic در پایتون هستند، با نام‌هایی که با زیرخط دوتایی
 شروع و پایان می‌یابند. هیچ چیز واقعاً جادویی در مورد آنها وجود ندارد. نمونه هایی از این موارد عبارتند از:
 
-```
+```python
 __init__ - constructor
 __str__, __repr__ - object representation (casting to string, printing)
 __len__, __next__... - generators
@@ -272,7 +272,7 @@ __eq__, __lt__, __gt__ - operator overloading
 
 منظور از Monkey Patching تغییر رفتار یک تابع یا یک object پس از تعریف کردن آن است. مثلا:
 
-```
+```python
 import datetime
 datetime.datetime.now = lambda: datetime.datetime(2012, 12, 12)
 
@@ -297,7 +297,7 @@ with open("foo.txt") as foo_file:
 
 ```
 
-```
+```python
 from contextlib import nested
 with nested(A(), B(), C()) as(X, Y, Z):
     do_something()
@@ -305,14 +305,14 @@ with nested(A(), B(), C()) as(X, Y, Z):
 
 ```
 
-```
+```python
 with open('data') as input_file, open('result', 'w') as output_file:
     for line in input_file:
         output_file.write(parse(line))
 
 ```
 
-```
+```python
 lock = threading.Lock()
 with lock: #Critical section of code
 
@@ -322,7 +322,7 @@ with lock: #Critical section of code
 
 ۱۷- استثنا UnboundLocalError و نحوه اجتناب از آن را توضیح دهید؟ مسئله:
 
-```
+```python
 >>> x = 10
 >>> def foo():
 ...     print(x)
@@ -332,7 +332,7 @@ with lock: #Critical section of code
 
 و خروجی مثل زیر خواهد بود:
 
-```
+```python
 >>> foo()
 Traceback (most recent call last):
   ...
@@ -345,7 +345,7 @@ UnboundLocalError: local variable 'x' referenced before assignment
 می دهد، کامپایلر آن را به عنوان یک متغیر local تشخیص می دهد. در نتیجه زمانی که print(x) قبلی سعی می کند uninitialized
 local variable را چاپ کند یک خطا ایجاد می شود.
 
-```
+```python
 >>> x = 10
 >>> def foobar():
 ...     global x
@@ -366,7 +366,7 @@ local variable را چاپ کند یک خطا ایجاد می شود.
 
 منظور از unpickling: عملیات معکوس است که به موجب آن یک stream بایت دوباره به صورت hierarchy تبدیل به object می شود.
 
-```
+```python
 >>> import random 
 >>> import pickle 
 >>> num_list = [random.random() for _ in range(10_000)] 
@@ -394,7 +394,7 @@ True
 زمانی که مطمئن نیستیم چند آرگومان قرار است به یک تابع ارسال شود، یا اگر می خواهیم یک لیست ذخیره شده یا چند آرگومان را به
 یک تابع ارسال کنیم، از *args استفاده می کنیم.
 
-```
+```python
 >>> def print_everything(*args):
         for count, thing in enumerate(args):
 ...         print( '{0}. {1}'.format(count, thing))
@@ -409,7 +409,7 @@ True
 از **kwargs زمانی استفاده می شود که نمی دانیم چند keyword arguments به یک تابع ارسال می شود، یا می توان از آن برای ارسال
 مقادیر یک dictionary به عنوان keyword arguments استفاده کرد.
 
-```
+```python
 >>> def table_things(**kwargs):
 ...     for name, value in kwargs.items():
 ...         print( '{0} = {1}'.format(name, value))
@@ -428,7 +428,7 @@ apple = fruit
 
 فرض کنید یک کلاس ClassA دارید که حاوی متدی است که به صورت زیر تعریف شده است:
 
-```
+```python
 def methodA(self, arg1, arg2): #do something
 
 ```
@@ -436,7 +436,7 @@ def methodA(self, arg1, arg2): #do something
 و object A یک instance از کلاس هستش. حالا زمانی که ObjectA.methodA(arg1, arg2) را صدا بزنیم، پایتون به صورت داخلی آن را
 مثل زیر تبدیل می کند:
 
-```
+```python
 ClassA.methodA(ObjectA, arg1, arg2)
 
 ```
@@ -452,7 +452,7 @@ ClassA.methodA(ObjectA, arg1, arg2)
 
 دوم) extend لیست اول را با یک لیست دیگر ادغام میکنه. (البته هر iterable object ای میتونه باشه نه فقط خود لیست)
 
-```
+```python
 
 x = [1, 2, 3]
 x.append([4, 5])
@@ -475,7 +475,7 @@ print (x)
 با استفاده از پیپ، امکان توسعه، استقرار و اجرای چندین برنامه در یک هاست را فراهم می کند که هر کدام دارای نسخه مفسر
 پایتون و مجموعه جداگانه ای از کتابخانه ها هستند.
 
-```
+```python
 python3 -m venv /path/to/new/virtual/environment
 
 ```
@@ -492,7 +492,7 @@ python3 -m venv /path/to/new/virtual/environment
 هر وقت که یک تابع میسازیم پایتون یک آبجکت callable میسازد. در مثال زیر، میتونیم تابع func را به دو طریق define کنیم(مثل
 هم هستند)
 
-```
+```python
 class a(object):
     def __call__(self, *args):
         print 'Hello'
@@ -511,7 +511,7 @@ def func(*args):
 
 بله استفاده از دکوریتور @staticmethod
 
-```
+```python
 class MyClass(object):
     @staticmethod
     def the_static_method(x):
@@ -533,7 +533,7 @@ MyClass.the_static_method(2) # outputs 2
 پیش فرض استفاده نکنید. در عوض، از None به عنوان مقدار پیش فرض استفاده کنید و در داخل تابع، بررسی کنید که آیا پارامتر
 None است یا خیر و یک لیست/dictionary/ یا هر چیز دیگه ای که هست جدید ایجاد کنید.
 
-```
+```python
 def foo(mydict=None):
     if mydict is None:
         mydict = {}  # create a new dict for local namespace
@@ -544,7 +544,7 @@ def foo(mydict=None):
 
 ۲۶- این مقدار دهی را توضیح دهید: x = y or z
 
-```
+```python
 x = a or b
 
 ```
@@ -557,7 +557,7 @@ x = a or b
 
 به راحتی :D
 
-```
+```python
 a[start:stop]  # items start through stop-1
 a[start:]      # items start through the rest of the array
 a[:stop]       # items from the beginning through stop-1
@@ -566,7 +566,7 @@ a[:]           # a copy of the whole array
 
 مقدار step نیز وجود دارد که می تواند با هر یک از موارد بالا استفاده شود:
 
-```
+```python
 a[start:stop:step] # start through not past stop, by step
 
 ```
@@ -595,7 +595,7 @@ a[start:stop:step] # start through not past stop, by step
 
 روش اتصال داده‌ها به یک تابع بدون ارسال آن‌ها به عنوان پارامتر، Closure نامیده می‌شود.
 
-```
+```python
 def make_counter():
     i = 0
     def counter(): # counter() is a closure
@@ -621,7 +621,7 @@ print (c1(), c1(), c2(), c2())
 پایتون با استفاده از ۲ تا underscore این امکان را میده که توابع و متغیر های private تعریف کنیم.
 مثل ``` __myPrivateMethod() ``` این را تشریح کنید لطفا:
 
-```
+```python
 >>> class MyClass:
 ...     def myPublicMethod(self):
 ...             print 'public method'
@@ -656,7 +656,7 @@ deliberate access from outside.)
 
 هر فایل پایتون یک ماژول است، نام فایل بدون پسوند py هستش.
 
-```
+```python
 import my_module
 
 ```
@@ -668,7 +668,7 @@ import my_module
 بسته ها packages نیز ماژول هستند. آنها فقط بسته بندی متفاوتی دارند. آنها از ترکیب یک دایرکتوری به علاوه فایل init.py
 تشکیل می شوند. آنها ماژول هایی هستند که توانایی نگه داری ماژول های دیگر را هم دارند.
 
-```
+```python
 from my_package.timing.danger.internets import function_of_love
 
 ```
@@ -737,7 +737,7 @@ value ، با برخی بهینه‌سازی (ها) که از این کمبود 
 در واقع Staticmethod یک متدی است که چیزی در مورد کلاس یا instance ای که فراخوانی شده است نمیداند. فقط آرگومان هایی که
 تعریف شده است را دریافت می کند.
 
-```
+```python
 class C:
     @staticmethod
     def f(arg1, arg2, ...): ... 
@@ -746,7 +746,7 @@ class C:
 از سوی دیگر Classmethod یک متدی است که از کلاسی که فرخوانی شده، یا کلاس instance ای که فراخوانی شده به عنوان اولین
 آرگومان استفاده می کند. تعریف آن از طریق وراثبت از Subclass پیروی میکند نه کلاس Parent.
 
-```
+```python
 class C:
    @classmethod
    def f(cls, arg1, arg2, ...): ...  
@@ -792,7 +792,7 @@ class C:
 
 از metaclass استفاده می کنیم:
 
-```
+```python
 class Singleton(type):
     _instances = {}
     def __call__(cls, *args, **kwargs):
