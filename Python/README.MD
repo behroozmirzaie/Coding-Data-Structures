@@ -772,7 +772,49 @@ class C:
 
 --- 
 
-۳۷ 
+۳۷- منظور از Metaclass در پایتون چیست؟
 
+یک Metaclass کلاس یک کلاس است.
 
+یک کلاس نحوه رفتار یک instance از کلاس را در هنگام ساخت مشخص می کند.
+
+یک متاکلاس نحوه رفتار یک کلاس را تعریف میکند.
+
+یک کلاس یک instance از metaclass است.
+
+بهش میتونیم class factory هم بگیم.
+
+--- 
+
+# سطح Expert
+
+۳۸- یک راه حل ساده برای پیاده سازی Singletons بیان کنید.
+
+از metaclass استفاده می کنیم:
+
+```
+class Singleton(type):
+    _instances = {}
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+#Python2
+class MyClass(BaseClass):
+    __metaclass__ = Singleton
+
+#Python3
+class MyClass(BaseClass, metaclass=Singleton):
+    pass
+
+```
+
+به طور کلی استفاده از متاکلاس برای پیاده‌سازی سینگلتون منطقی است. Singleton خاص است زیرا فقط یک بار ایجاد می شود و
+متاکلاس راهی است که شما ایجاد یک کلاس را customize می کنید. در صورت نیاز به customize تعاریف کلاس singleton به روش های
+دیگر، استفاده از متاکلاس به شما کنترل بیشتری می دهد.
+
+---
+
+۳۹- 
 
