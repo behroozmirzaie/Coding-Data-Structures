@@ -60,7 +60,26 @@ interface و چندین functions بیان می شود.
 modifier دسترسی public, private, internal, protected, and protected internal مشخص کنید.
 
 --- 
-۸- 
+۸- تفاوت بین کلاس (class) و structure را بیان کنید.
+
+کلاس :
+
+- یک کلاس refrence type است.
+- هنگام نمونه سازی یک کلاس، CLR حافظه را برای آن نمونه به صورت پشته اختصاص می دهد.
+- کلاس ها از وراثت پشتیبانی می کنند.
+- متغیرهای یک کلاس را می توان به null نسبت داد.
+- کلاس می تواند شامل constructor/destructor باشد.
+
+اما Structure:
+
+- ساختار یا structure یک value type است.
+- در structure، مموری بر روی stack اختصاص می یابد.
+- ساختار از وراثت پشتیبانی نمی کند.
+- متغیر های structure نمی توانند null باشند.
+- ساختار به constructor/destructor نیازی ندارد. و مقادیر می توانند به صورت اتومات مقدار دهی شوند.
+
+---
+
 
 
 
