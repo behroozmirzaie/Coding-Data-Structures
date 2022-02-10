@@ -116,7 +116,7 @@ modifier دسترسی public, private, internal, protected, and protected intern
 
 ---
 
-# سطح متوسط
+# سطح Mid
 
 ۱۳- تفاوت بین virtual method و abstract method را توضیح دهید.
 
@@ -274,4 +274,60 @@ interface با استفاده از کلمه کلیدی interface تعریف می
 فرزند خود را توسعه دهند.
 
 --- 
-۲۵- 
+
+# سطح Senior
+
+۲۵- مفهوم destructor را توضیح دهید.
+
+یک Destructor متد خاص برای یک کلاس است و هنگامی که یک شی در نهایت از بین می رود به طور خودکار فراخوانی می شود. نام
+destructor نیز با نام کلاس یکی است اما با پیشوند tilde (~) دنبال می شود.
+
+یک destructor برای آزاد کردن حافظه تخصیص یافته به صورت پویا و آزاد کردن منابع استفاده می شود. با این حال، می‌توانید یک
+روش سفارشی را پیاده‌سازی کنید که به شما امکان می‌دهد با فراخوانی destructor، تخریب شی را کنترل کنید.
+
+مثال پایتون:
+
+```python
+class Employee:
+ 
+    # Initializing
+    def __init__(self):
+        print('Employee created.')
+ 
+    # Deleting (Calling destructor)
+    def __del__(self):
+        print('Destructor called, Employee deleted.')
+ 
+obj = Employee()
+del obj
+```
+
+```python
+
+# Python program to illustrate destructor
+ 
+class A:
+    def __init__(self, bb):
+        self.b = bb
+ 
+class B:
+    def __init__(self):
+        self.a = A(self)
+    def __del__(self):
+        print("die")
+ 
+def fun():
+    b = B()
+ 
+fun()
+```
+
+خروجی مثال بالا.
+
+```bash
+die
+```
+
+---
+
+۲۶- 
