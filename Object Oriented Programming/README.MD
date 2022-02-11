@@ -377,4 +377,82 @@ die
 
 ---
 
-۳۰- 
+۳۰- چگونه Circular Reference را حل می کنید؟
+
+برای مسئله ای به این شکل که کلاس A، کلاس B را به عنوان یک properties دارد، و همینطور کلاس B، کلاس A را به صورت
+properties دارد. این مشکل را چگونه حل می کنید؟
+
+اول از همه اینکه باید توی طراحی که انجام دادید تجدید نظر کنید. زمانی که مشکل circular reference داریم مشخص می شود که در
+طراحی نقص هایی وجود داشته است.
+
+در بیشتر موارد زمانی که مجبوریم دو کلاس به یکدگیر ارجاع داده شوند از یک interface استفاده می کنیم. به عنوان مثال:
+
+##### Before
+
+```Java
+public class Foo
+{
+    Bar myBar;
+}
+
+public class Bar
+{
+    Foo myFoo;
+}
+```
+
+##### Dependency graph:
+
+```Java
+Foo     Bar
+ ^       ^
+ |       |
+Bar     Foo
+```
+
+همانطور که مشاهده میکنید Foo به Bar وابسطه است و هیمنطور Bar به Foo وابسطه است.
+
+##### AFTER
+
+```Java
+public interface IBar
+{
+}
+
+public class Foo
+{
+    IBar myBar;
+}
+
+public class Bar : IBar
+{
+    Foo myFoo;
+}
+
+```
+
+##### Dependency graph:
+
+```Java
+Foo, IBar     IBar
+    ^          ^
+    |          |
+   Bar        Foo
+
+```
+
+هر دوی Foo و Bar الان به Ibar وابسطه هستند. دیگه چیزی به اسم circular reference نداریم.
+
+---
+
+# سطح Expert
+
+۳۱- آیا می توانید یک کلاس private را در یک namespace اعلام کنید؟
+
+کلاس های یک فضای نام به طور پیش فرض داخلی (internal)هستند. با این حال، می‌توانید صریحاً آن‌ها را فقط public و نه
+private، protected یا protected internal اعلام کنید. کلاس های تودرتو را می توان به عنوان private، protected یا protected
+internal اعلام کرد.
+
+---
+
+۳۲- 
