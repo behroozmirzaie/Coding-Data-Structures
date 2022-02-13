@@ -74,4 +74,47 @@ source*: [stackoverflow.com](https://stackoverflow.com/questions/3329943/git-bra
 
 ---
 
-۲- 
+۲- چه زمانی از git stash استفاده کنیم؟
+
+دستور git stash تغییراتی که uncommitted هستند رو میگیره (هم staged هم unstaged)، برای استفاده بعدا ذخیرشون میکنه، و بعدا
+با استفاده working copy اونها رو revert میکنه.
+(به حالت قبلی برمیگردونه)مثلا:
+
+:
+
+```terminal
+$ git status
+On branch master
+Changes to be committed:
+new file: style.css
+Changes not staged for commit:
+modified: index.html
+$ git stash
+Saved working directory and index state WIP on master: 5002d47 our new homepage
+HEAD is now at 5002d47 our new homepage
+$ git status
+On branch master
+nothing to commit, working tree clean
+```
+
+یکی دیگه از زمان هایی که میتونیم از stash استفاده کنیم موقعی هست که یادمون میفته فراموش کردیم یه تغییراتی رو توی commit
+قبلی انجام بدیم و الان داریم روی قسمت جدید کار میکنیم.
+
+```terminal
+# Assume the latest commit was already done
+# start working on the next patch, and discovered I was missing something
+
+# stash away the current mess I made
+$ git stash save
+
+# some changes in the working dir
+
+# and now add them to the last commit:
+$ git add -u
+$ git commit --ammend
+
+# back to work!
+$ git stash pop
+```
+
+---
